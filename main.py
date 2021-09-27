@@ -1,4 +1,5 @@
 from flask import Flask, request, jsonify
+from ThreadsSystem import ApiTesteThread
 from Webdriver.webservices import WebService
 
 
@@ -7,6 +8,8 @@ app = Flask(__name__)
 
 @app.route("/teste")
 def test():
+    a = ApiTesteThread.Th(1)
+    a.start()
     return jsonify({
         'Success': 'working API!'
     }), 200
